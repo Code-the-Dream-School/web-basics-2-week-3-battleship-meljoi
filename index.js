@@ -41,6 +41,7 @@ const battleship = () => {
         }
 
     }
+    ships = 0;
 
     while(ships < player2.shipCount){
       xPos = Math.floor(Math.random() * 4);
@@ -77,9 +78,10 @@ const battleship = () => {
         let qxp = prompt(`${currentPlayer.name} Please choose your x coordinate`);
         let qyp = prompt(`${currentPlayer.name} Please choose your y coordinate`);
 
-        if(currentPlayer.gameBoard[qxp][qyp]===1){
+        if(otherPlayer.gameBoard[qxp][qyp]===1){
         alert("hit");
         otherPlayer.shipCount --;
+        otherPlayer.gameBoard[qxp][qyp]=0;
         }else{
          alert("miss. Next Player");
          }count++;
@@ -96,7 +98,7 @@ const battleship = () => {
       if(parseInt(player1.shipCount)===0){
         winner = currentPlayer;
       }else if (parseInt(player2.shipCount)===0){
-        alert(`${player1.name} is the winner`);
+        //alert(`${player1.name} is the winner`);
         winner = currentPlayer;
        } else{
         alert("Error, check your coordinates");
